@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import colors from "./config/colors";
+import {MaterialCommunityIcons } from "@expo/vector-icons"
 
 const Task = ({text}) => {
 
@@ -12,7 +14,9 @@ const Task = ({text}) => {
           </View>
           <Text style={styles.text}>{text}</Text>
         </View>
-           <View style={styles.circular}></View>
+         <View>
+    <MaterialCommunityIcons name="trash-can" size={30} color={colors.medium} />
+    </View>
         </View>
     )
     }
@@ -21,12 +25,12 @@ const styles =StyleSheet.create ({
 circular: {
  width: 12,
  height: 12,
- borderColor: "#55BCF6",
+ borderColor: colors.danger,
  borderWidth: 2,
  borderRadius: 5,
 },
 item:{
-    backgroundColor:"#fff",
+    backgroundColor: colors.white,
     padding: 15,
     borderRadius: 10,
     flexDirection: "row",
@@ -42,7 +46,7 @@ itemLeft: {
 square:{
 width: 24,
 height: 24,
-backgroundColor: "#55BCF6",
+backgroundColor: colors.secondary,
 opacity: 0.4,
 borderRadius: 5,
 marginRight: 15,

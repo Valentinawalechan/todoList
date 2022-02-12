@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import { KeyboardAvoidingView, StyleSheet, Text, View, Platform, TextInput, TouchableOpacity, Keyboard } from 'react-native';
 import Task from './components/Task';
-
+import colors from "./components/config/colors";
+import {MaterialCommunityIcons} from "@expo/vector-icons"
 
 export default function App() {
   const [task, setTask] = useState();
@@ -28,6 +29,7 @@ setTaskItems(itemsCopy);
    {
      taskItems.map((item, index) => { 
        return ( <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+     
        <Task  text={item} /> 
        </TouchableOpacity>
      )
@@ -41,7 +43,7 @@ setTaskItems(itemsCopy);
        <TextInput style={styles.input} placeholder={"Write a task"} valuie={task} onChangeText={text => setTask(text)}/>
        <TouchableOpacity onPress={() =>handleAddTask()} >
    <View style={styles.wrapper}>
-     <Text style={styles.addText}>+</Text>
+     <MaterialCommunityIcons name="plus" size={30} color={colors.medium} />
    </View>
        </TouchableOpacity>
        
@@ -52,16 +54,17 @@ setTaskItems(itemsCopy);
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.light,
     flex: 1,
-    backgroundColor: '#E8EAED',
+    
   },
   input: {
     paddingVertical: 15,
     width: 250,
     paddingHorizontal: 15,
-    backgroundColor: "#fff",
+    backgroundColor: colors.white,
     borderRadius: 60,
-    borderColor: "#C0C0C0",
+    borderColor: colors.medium,
     borderWidth:1
   },
   items: {
@@ -83,15 +86,17 @@ const styles = StyleSheet.create({
   title: {
   fontSize: 24,
   fontWeight: "bold",
+  color: colors.primary,
+  textAlign: "center"
   },
   wrapper: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     backgroundColor: "#fff",
     borderRadius: 60,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: "#C0C0C0",
+    borderColor: colors.medium,
     borderWidth:1
   }
 });
